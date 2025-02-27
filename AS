@@ -1,0 +1,47 @@
+{
+    "uuid": "%UUID%",
+    "type": "%TYPE%",
+    "attributes": [
+        {
+            "name": "EA_Profil_KS_vyzaduje_zep",
+            "value": null
+        },
+        {
+            "name": "Gen_Profil_ref_id",
+            "value": "%refURI%/%refID%"
+        },
+        {
+            "name": "Gen_Profil_kod_metais",
+            "value": "%genID%"
+        },
+        {
+            "name": "Gen_Profil_nazov",
+            "value": "%NAZOV%"
+        },
+        {
+            "name": "Gen_Profil_anglicky_nazov",
+            "value": null
+        },
+        {
+            "name": "Gen_Profil_popis",
+            "value": "popis"
+        },
+        {
+            "name": "Gen_Profil_anglicky_popis",
+            "value": "description"
+        },
+        {
+            "name": "Gen_Profil_poznamka",
+            "value": "poznamka"
+        },
+        {
+            "name": "EA_Profil_AS_dostupnost_pre_externu_integraciu",
+            "value": "c_stav_dost_ext_int.2"
+        },
+        {
+            "name": "EA_Profil_AS_typ_cloudovej_sluzby",
+            "value": "c_typ_cloud_sluzba_as.1"
+        }
+    ],
+    "owner": "1d8a37f7-3063-46d2-b66a-c1b0c8471878-67d48d04-321e-426e-a321-e0bc6fa40437"
+    }

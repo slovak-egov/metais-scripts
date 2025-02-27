@@ -1,0 +1,93 @@
+[
+    {
+        "gid": "1d8a37f7-3063-46d2-b66a-c1b0c8471878-67d48d04-321e-426e-a321-e0bc6fa40437",
+        "roleWeight": 1,
+        "roleUuid": "1d8a37f7-3063-46d2-b66a-c1b0c8471878",
+        "roleName": "EA_GARPO",
+        "roleDescription": "Garant EA za povinnú osobu"
+    },
+    {
+        "gid": "c9c6dd44-2bc0-4d85-b5a1-c70ab05a7975-67d48d04-321e-426e-a321-e0bc6fa40437",
+        "roleWeight": 2,
+        "roleUuid": "c9c6dd44-2bc0-4d85-b5a1-c70ab05a7975",
+        "roleName": "R_EGOV",
+        "roleDescription": "Správca eGov komponentov"
+    },
+    {
+        "gid": "d52ceba5-528c-4480-8275-f7ab675ac2d1-67d48d04-321e-426e-a321-e0bc6fa40437",
+        "roleWeight": 4,
+        "roleUuid": "d52ceba5-528c-4480-8275-f7ab675ac2d1",
+        "roleName": "IKT_GARPO",
+        "roleDescription": "Garant IKT za povinnú osobu"
+    },
+    {
+        "gid": "d2e6852f-2f1d-4e48-8f9d-e605e830a03b-67d48d04-321e-426e-a321-e0bc6fa40437",
+        "roleWeight": 5,
+        "roleUuid": "d2e6852f-2f1d-4e48-8f9d-e605e830a03b",
+        "roleName": "SZC_HLGES",
+        "roleDescription": "Hlavný gestor pre ZČ"
+    },
+    {
+        "gid": "90c717b9-a0c9-43fa-b0e2-b2bc1669fb0b-67d48d04-321e-426e-a321-e0bc6fa40437",
+        "roleWeight": 8,
+        "roleUuid": "90c717b9-a0c9-43fa-b0e2-b2bc1669fb0b",
+        "roleName": "KRIS_PODPIS",
+        "roleDescription": "Zodpovedný za podpísanie KRIT"
+    },
+    {
+        "gid": "bd791cc2-b33f-4bea-beb7-84235abbb23c-67d48d04-321e-426e-a321-e0bc6fa40437",
+        "roleWeight": 8,
+        "roleUuid": "bd791cc2-b33f-4bea-beb7-84235abbb23c",
+        "roleName": "KRIS_TVORBA",
+        "roleDescription": "Spracovateľ KRIT"
+    },
+    {
+        "gid": "d437b925-5bbe-4785-adba-076c8e8c7882-67d48d04-321e-426e-a321-e0bc6fa40437",
+        "roleWeight": 8,
+        "roleUuid": "d437b925-5bbe-4785-adba-076c8e8c7882",
+        "roleName": "INT_PODPIS",
+        "roleDescription": "Zástupca integrujúcich sa strán, oprávnený na podpis DIZ a Integračnej SLA"
+    },
+    {
+        "gid": "34fd283b-a90b-4228-9ceb-02002eb11b93-67d48d04-321e-426e-a321-e0bc6fa40437",
+        "roleWeight": 8,
+        "roleUuid": "34fd283b-a90b-4228-9ceb-02002eb11b93",
+        "roleName": "SLA_SPRAVA",
+        "roleDescription": "Zadávateľ SLA parametrov za PO"
+    },
+    {
+        "gid": "ce128665-5134-4dc1-8ca7-eb9d87acc11c-67d48d04-321e-426e-a321-e0bc6fa40437",
+        "roleWeight": 8,
+        "roleUuid": "ce128665-5134-4dc1-8ca7-eb9d87acc11c",
+        "roleName": "LIC_ZLPO",
+        "roleDescription": "Zadávateľ licencií za PO"
+    },
+    {
+        "gid": "21cdb158-145c-4546-b3a3-ba3814e58dca-67d48d04-321e-426e-a321-e0bc6fa40437",
+        "roleWeight": 8,
+        "roleUuid": "21cdb158-145c-4546-b3a3-ba3814e58dca",
+        "roleName": "PROJEKT_SCHVALOVATEL",
+        "roleDescription": "Umožňuje posúvať projekt v rámci procesu schvalovania dopredu a späť. Kombinácia s EA_GARPO, IKT GARPO, R_EGOV a Povinnou Osobou Garant eGovermentu umožní editovanie všetkych položiek."
+    },
+    {
+        "gid": "83c7fa4e-ffa4-45f3-9cb3-7d410f995f49-67d48d04-321e-426e-a321-e0bc6fa40437",
+        "roleWeight": 8,
+        "roleUuid": "83c7fa4e-ffa4-45f3-9cb3-7d410f995f49",
+        "roleName": "WIKI_USER",
+        "roleDescription": "Používateľ v rámci Confluence"
+    },
+    {
+        "gid": "7371cccd-343e-4afc-b3bb-a99dd56347b1-67d48d04-321e-426e-a321-e0bc6fa40437",
+        "roleWeight": 8,
+        "roleUuid": "7371cccd-343e-4afc-b3bb-a99dd56347b1",
+        "roleName": "TCO_ZPO",
+        "roleDescription": "Zadávateľ TCO nákladov za PO"
+    },
+    {
+        "gid": "43c7829a-9d02-42ed-b883-5ce39c432d45-67d48d04-321e-426e-a321-e0bc6fa40437",
+        "roleWeight": 8,
+        "roleUuid": "43c7829a-9d02-42ed-b883-5ce39c432d45",
+        "roleName": "MON_SPRAVA",
+        "roleDescription": "Zadávateľ monitorovacích údajov na službách - inštitúcia"
+    }
+]

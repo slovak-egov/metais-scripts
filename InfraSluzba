@@ -1,0 +1,67 @@
+{
+    "uuid": "%UUID%",
+    "type": "%TYPE%",
+    "attributes": [
+        {
+            "name": "EA_Profil_InfraSluzba_EA_Profil_InfraSluzba_datum_zaradenia_do_katalogu_KVCS",
+            "value": null
+        },
+        {
+            "name": "Gen_Profil_ref_id",
+            "value": "%refURI%/%refID%"
+        },
+        {
+            "name": "Gen_Profil_kod_metais",
+            "value": "%genID%"
+        },
+        {
+            "name": "Gen_Profil_poznamka",
+            "value": null
+        },
+        {
+            "name": "Gen_Profil_anglicky_popis",
+            "value": null
+        },
+        {
+            "name": "Gen_Profil_popis",
+            "value": null
+        },
+        {
+            "name": "Gen_Profil_anglicky_nazov",
+            "value": null
+        },
+        {
+            "name": "Gen_Profil_nazov",
+            "value": "%NAZOV%"
+        },
+        {
+            "name": "EA_Profil_KS_vyzaduje_zep",
+            "value": null
+        },
+        {
+            "name": "EA_Profil_InfraSluzba_EA_Profil_InfraSluzba_datum_zaradenia_do_katalogu_KVCS",
+            "value": "%DATE%T00:00:00.000+01:00"
+        },
+        {
+            "name": "EA_Profil_InfraSluzba_EA_Profil_InfraSluzba_bezpecnostna_uroven_dostupnost",
+            "value": "%CACC%"
+        },
+        {
+            "name": "EA_Profil_InfraSluzba_EA_Profil_InfraSluzba_bezpecnostna_uroven_integrita",
+            "value": "%CINT%"
+        },
+        {
+            "name": "EA_Profil_InfraSluzba_EA_Profil_InfraSluzba_EA_Profil_InfraSluzba_bezpecnostna_uroven_dovernost",
+            "value": "%CCNF%"
+        },
+        {
+            "name": "EA_Profil_InfraSluzba_EA_Profil_InfraSluzba_akreditacie_cloudovych_sluzieb",
+            "value": "%CLVL%"
+        },
+        {
+            "name": "EA_Profil_InfraSluzba_typ_cloudovej_sluzby",
+            "value": "%CTYPE%"
+        }
+    ],
+    "owner": "1d8a37f7-3063-46d2-b66a-c1b0c8471878-24f55fb7-35b0-4a6d-933b-127feb3a058f"
+}
