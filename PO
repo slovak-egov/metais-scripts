@@ -1,0 +1,62 @@
+{
+    "type": "PO",
+    "uuid": "d2eec090-525e-43f9-8e37-9dfc9e618a4b",
+    "attributes": [
+        {
+            "name": "Profil_PO_statutar_meno",
+            "value": "Kristián"
+        },
+        {
+            "name": "Gen_Profil_kod_metais",
+            "value": "36033987"
+        },
+        {
+            "name": "Profil_PO_statutar_priezvisko",
+            "value": "Alakša"
+        },
+        {
+            "name": "Gen_Profil_zdroj",
+            "value": "c_zdroj.3"
+        },
+        {
+            "name": "Gen_Profil_nazov",
+            "value": "GAMO a.s."
+        },
+        {
+            "name": "EA_Profil_PO_kategoria_osoby",
+            "value": "c_kategoria_osoba.1"
+        },
+        {
+            "name": "EA_Profil_PO_ulica",
+            "value": "Kyjevské námestie"
+        },
+        {
+            "name": "EA_Profil_PO_psc",
+            "value": "97404"
+        },
+        {
+            "name": "EA_Profil_PO_cislo",
+            "value": "6"
+        },
+        {
+            "name": "EA_Profil_PO_obec",
+            "value": "Banská Bystrica"
+        },
+        {
+            "name": "Gen_Profil_ref_id",
+            "value": "https://data.gov.sk/id/legal-subject/36033987"
+        },
+        {
+            "name": "EA_Profil_PO_ico",
+            "value": "36033987"
+        }
+    ],
+    "metaAttributes": {
+        "owner": "1d8a37f7-3063-46d2-b66a-c1b0c8471878-67d48d04-321e-426e-a321-e0bc6fa40437",
+        "state": "DRAFT",
+        "createdBy": "nadezda.niksova",
+        "createdAt": "2022-07-26T06:43:53.648",
+        "lastModifiedBy": "tech.synchpo",
+        "lastModifiedAt": "2023-05-21T03:00:19.227"
+    }
+}
