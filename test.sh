@@ -1,12 +1,15 @@
 #!/bin/sh -x
-# zavislosti: jq, uuidgen
+# zavislosti: curl, jq, uuidgen
+# skript sa snaží byť POSIX compliant, žiadne "bašizmy"
+
 METAISURI="https://metais-test.slovensko.sk"
 #CURL_OPTS="--silent --location"
 CURL_OPTS="--location"
-ATOKEN="eyJraWQiOiJzaWduaW5nIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJwZXRlci52aXNrdXBAbWlycmkuZ292LnNrIiwiYXVkIjoid2ViUG9ydGFsQ2xpZW50IiwibmJmIjoxNzQ0NjA3OTkwLCJpZGVudGl0eV91dWlkIjoiYTIwNGQyZjAtYWIzNS00YWEwLTk0YWMtNmM4OTRlMWExYWY2IiwidXNlcl9pZCI6InBldGVyLnZpc2t1cEBtaXJyaS5nb3Yuc2siLCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwiY191aSJdLCJyb2xlcyI6WyJJS1RfR0FSUE8iLCJLUklTX1RWT1JCQSIsIlNMQV9TUFJBVkEiLCJXSUtJX1VTRVIiLCJXSUtJX0FETUlOIiwiUl9URUNIIiwiUFJPSkVLVF9TQ0hWQUxPVkFURUwiLCJMSUNfWkxQTyIsIlJPTEVfVVNFUiIsIk1PTl9TUFJBVkEiLCJLUklTX1BPRFBJUyIsIkVBX0dBUlBPIiwiUl9FR09WIiwiVENPX1pQTyIsIlNaQ19ITEdFUyIsIklOVF9QT0RQSVMiXSwiaXNzIjoiaHR0cHM6Ly9tZXRhaXMtdGVzdC5zbG92ZW5za28uc2svaWFtIiwiZXhwIjoxNzQ0NjM2NzkwLCJpYXQiOjE3NDQ2MDc5OTAsImp0aSI6ImQ4YzJiNjM5LTE3NmYtNGViNS04MTFlLTJlODIyNTRjMDcyYiJ9.G4YdLDRo3d6oGHk5LABOiZJse-NbQkRU0K2F7wJ5rR4iUYXjAqLg8iwW9kvG4vz92ek59WoFkx_1kax4b0CjEulUe70pccaqU9yu_haSRNzw_al20TF8Csj7iGalmCihHFRqbGbF4t7xaqZ-NL4bYnup3H8XC8Nfh-XD2KDF43ETWHyD2lf-AgjivblYqrQUq7Mu5NEEIY2mqM2yIwWbJP9AK0N3ORZ0TCr50XsEVSIqBR2nkQ_9rY2Y1OEUGSRvnIL5K-akUhk_PsqouQ8XVk930WOHi21CGFmwL4YVg0Vbar5BT4NL1ARxpfcD6Vywa--3zkq-_9o7L8WHd1tv6Q"
+# copy JWT token here
+ATOKEN="eyJraWQiOiJza......7L8WHd1tv6Q"
 genID=""
 
-# return metais_code for CI type
+# vráť kód METAIS na základe typu CI
 generateID() {
     # https://metais-test.slovensko.sk/api/types-repo/citypes/generate/ISVS?lang=sk
 
@@ -20,7 +23,7 @@ generateID() {
     echo $ret|jq '.cicode'|tr -d '"'
 }
 
-# return referemce base-URI
+# vráť base-URI reference
 getrefURI() {
     case "${1}" in
         "AS" )
@@ -39,7 +42,7 @@ getrefURI() {
     esac
 }
 
-# set variables for cloud params from CPARAM
+# nastav cloud parametre z reťazca CPARAM
 setcloudParams() {
     if [ -n "$CPARAM" ]; then
     CTYPE="c_typ_cloud_sluzba_is.$(echo $CPARAM|awk -F, '{print $1}')"
@@ -50,12 +53,12 @@ setcloudParams() {
     fi
 }
 
-# return task UUID from request to store new CI
+# vráti "task/req. UUID" z požiadavky na uloženie novej CI
 # arguments:
 #   type - typ CI (AS, ISVS, InfraSluzba)
 #   nazov - nazov CI
 #   date - datum evidencie
-#   cparam - cloud parameters
+#   cparam - cloud parametre
 #   owneruuid - PO UUID
 storeCI() {
     # https://metais-test.slovensko.sk/api/cmdb/store/ci?lang=sk
@@ -90,7 +93,7 @@ storeCI() {
     echo $ret
 }
 
-# return PO UUID from ICO argument
+# vráti PO UUID na základe ICO
 getPO() {
     # https://metais-test.slovensko.sk/api/cmdb/rights/implicitHierarchy?lang=sk
     # data POlist.req
@@ -102,8 +105,8 @@ getPO() {
     ret=$(curl -v --silent --location --request POST ${URI} --header "Authorization: Bearer ${ATOKEN}" --header 'Content-Type: application/json' --data "${DATA}")
     #echo $ret
     [ -z "$ret" ] && exit 200
-    # if totalItems = 1, 0 and 2+ are not acceptable
-    # some PO are stored multiple times
+    # ak totalItems = 1, 0 and 2+ nie sú dostupné
+    # niektoré PO sú uložené viacnásobne s rovnakým ICO (BUG?)
     if [ $(echo $ret|jq .pagination.totaltems) -eq 1 ]; then
       echo $ret|jq .configurationItemSet[0].uuid
     else
