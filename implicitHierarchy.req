@@ -1,0 +1,21 @@
+{
+  "perpage": 10000,
+  "sortBy": "HIERARCHY_FROM_ROOT",
+  "sortType": "ASC",
+  "rights": [
+    {
+      "poUUID": "67d48d04-321e-426e-a321-e0bc6fa40437",
+      "roles": [
+        "1d8a37f7-3063-46d2-b66a-c1b0c8471878",
+        "d52ceba5-528c-4480-8275-f7ab675ac2d1"
+      ]
+    },
+    {
+      "poUUID": "a26e801d-c331-408a-bb69-4ec22a6c009a",
+      "roles": [
+        "1d8a37f7-3063-46d2-b66a-c1b0c8471878",
+        "d52ceba5-528c-4480-8275-f7ab675ac2d1"
+      ]
+    }
+  ]
+}

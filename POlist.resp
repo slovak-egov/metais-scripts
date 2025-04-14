@@ -1,0 +1,93 @@
+{
+    "pagination": {
+        "page": 1,
+        "perPage": 10,
+        "totalPages": 1,
+        "totaltems": 1
+    },
+    "configurationItemSet": [
+        {
+            "type": "PO",
+            "uuid": "aca82c2e-453d-42b8-a0b0-01ac8e14618b",
+            "attributes": [
+                {
+                    "name": "EA_Profil_PO_okres",
+                    "value": "Michalovce"
+                },
+                {
+                    "name": "Profil_PO_statutar_meno",
+                    "value": "Eduard"
+                },
+                {
+                    "name": "Gen_Profil_kod_metais",
+                    "value": "00325457"
+                },
+                {
+                    "name": "Profil_PO_statutar_priezvisko",
+                    "value": "Baláž"
+                },
+                {
+                    "name": "EA_Profil_PO_typ_osoby",
+                    "value": "c_typ_osoby.c1"
+                },
+                {
+                    "name": "Gen_Profil_nazov",
+                    "value": "Obec Lúčky, okres Michalovce"
+                },
+                {
+                    "name": "Gen_Profil_zdroj",
+                    "value": "c_zdroj.3"
+                },
+                {
+                    "name": "EA_Profil_PO_kategoria_osoby",
+                    "value": "c_kategoria_osoba.2"
+                },
+                {
+                    "name": "EA_Profil_PO_ulica",
+                    "value": "Lúčky"
+                },
+                {
+                    "name": "EA_Profil_PO_cislo",
+                    "value": "114"
+                },
+                {
+                    "name": "EA_Profil_PO_schranka_ovm_uri",
+                    "value": "ico://sk/00325457"
+                },
+                {
+                    "name": "EA_Profil_PO_ico",
+                    "value": "00325457"
+                },
+                {
+                    "name": "EA_Profil_PO_je_kapitola",
+                    "value": false
+                },
+                {
+                    "name": "EA_Profil_PO_psc",
+                    "value": "07234"
+                },
+                {
+                    "name": "EA_Profil_PO_obec",
+                    "value": "Lúčky"
+                },
+                {
+                    "name": "Gen_Profil_ref_id",
+                    "value": "https://data.gov.sk/id/legal-subject/00325457"
+                },
+                {
+                    "name": "EA_Profil_PO_schranka_upvs_name",
+                    "value": "Obec Lúčky"
+                }
+            ],
+            "metaAttributes": {
+                "owner": "1d8a37f7-3063-46d2-b66a-c1b0c8471878-67d48d04-321e-426e-a321-e0bc6fa40437",
+                "state": "DRAFT",
+                "createdBy": "migration",
+                "createdAt": "2016-03-11T17:48:36.223",
+                "lastModifiedBy": "jan.kulavjak@mirri.gov.sk",
+                "lastModifiedAt": "2025-01-08T11:13:18.835"
+            }
+        }
+    ],
+    "incidentRelationshipSet": []
+}

@@ -1,0 +1,87 @@
+{
+    "filter": {
+        "type": [
+            "PO"
+        ],
+        "fullTextSearch": "",
+        "searchFields": [
+            "Gen_Profil_kod_metais",
+            "Gen_Profil_nazov"
+        ],
+        "attributes": [
+            {
+                "name": "EA_Profil_PO_kategoria_osoby",
+                "filterValue": [
+                    {
+                        "value": "c_kategoria_osoba.2",
+                        "equality": "EQUAL"
+                    }
+                ]
+            },
+            {
+                "name": "EA_Profil_PO_typ_osoby",
+                "filterValue": [
+                    {
+                        "value": "c_typ_osoby.b",
+                        "equality": "EQUAL"
+                    },
+                    {
+                        "value": "c_typ_osoby.c1",
+                        "equality": "EQUAL"
+                    },
+                    {
+                        "value": "c_typ_osoby.c2",
+                        "equality": "EQUAL"
+                    },
+                    {
+                        "value": "c_typ_osoby.d1",
+                        "equality": "EQUAL"
+                    },
+                    {
+                        "value": "c_typ_osoby.d2",
+                        "equality": "EQUAL"
+                    },
+                    {
+                        "value": "c_typ_osoby.d3",
+                        "equality": "EQUAL"
+                    },
+                    {
+                        "value": "c_typ_osoby.d4",
+                        "equality": "EQUAL"
+                    },
+                    {
+                        "value": "c_typ_osoby.e",
+                        "equality": "EQUAL"
+                    },
+                    {
+                        "value": "c_typ_osoby.f",
+                        "equality": "EQUAL"
+                    },
+                    {
+                        "value": "c_typ_osoby.g",
+                        "equality": "EQUAL"
+                    }
+                ]
+            },
+            {
+                "name": "EA_Profil_PO_ico",
+                "filterValue": [
+                    {
+                        "value": "%ICO%",
+                        "equality": "EQUAL"
+                    }
+                ]
+            }
+        ],
+        "metaAttributes": {
+            "state": [
+                "DRAFT"
+            ]
+        },
+        "relTypeFilters": []
+    },
+    "page": 1,
+    "perpage": 10,
+    "sortBy": "lastModifiedAt",
+    "sortType": "DESC"
+}
