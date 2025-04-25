@@ -1,0 +1,10 @@
+@APIURI = https://metais-test.slovensko.sk/api/report/reports/run?lang=sk
+@contentType = application/json
+# naplň token
+@token = eyJraWQ.........FSFd30unw
+
+POST {{APIURI}} HTTP 1.1
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+<@ ./run-script.groovy
