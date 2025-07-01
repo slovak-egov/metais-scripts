@@ -1,0 +1,55 @@
+# https://metais-test.slovensko.sk/api/enums-repo/enums/enum/all/AKREDITACIE_CLOUDOVYCH_SLUZIEB
+[
+  {
+    "id": 24189,
+    "code": "c_akreditacie_cloudovych_sluzieb.1",
+    "value": "U1 Otvorené údaje",
+    "valid": true,
+    "description": "U1 služby na spracovanie Open data, ktoré sú verejne dostupné a použiteľné. V prípade poskytovania infraštruktúry na vývoj IS sa dáta považujú za open data. minimálne bezpečnost úrovne C0I0A0 a C0I0A1",
+    "orderList": 1,
+    "engValue": "U1 Open Data",
+    "engDescription": "U1 Open Data",
+    "qualifierName": null,
+    "qualifierNameEng": null,
+    "qualifierKey": null
+  },
+  {
+    "id": 24190,
+    "code": "c_akreditacie_cloudovych_sluzieb.2",
+    "value": "U2 Dôverné dáta",
+    "valid": true,
+    "description": "U2 je akreditácia služby určenej na spracovanie dôverných údajov,  potrebných na fungovanie ISVS. Dôverné údaje musia spĺňať bezpečnostnú úroveň C1I1A1 alebo C1I1A2.",
+    "orderList": 2,
+    "engValue": "U2 Confidential Data",
+    "engDescription": "U2 Confidential Data",
+    "qualifierName": null,
+    "qualifierNameEng": null,
+    "qualifierKey": null
+  },
+  {
+    "id": 24191,
+    "code": "c_akreditacie_cloudovych_sluzieb.3",
+    "value": "U3 Regulované dáta",
+    "valid": true,
+    "description": "U3 je akreditácia služby určenej na spracovanie regulovaných údajov, používanie ktorých upravujú právne predpisy. Regulované údaje musia spĺňať bezpečnostnú úroveň C2I1A1 až  C3I3A3.",
+    "orderList": 3,
+    "engValue": "U3 Regulated Data",
+    "engDescription": "U3 Regulated Data",
+    "qualifierName": null,
+    "qualifierNameEng": null,
+    "qualifierKey": null
+  },
+  {
+    "id": 24192,
+    "code": "c_akreditacie_cloudovych_sluzieb.4",
+    "value": "U4 Prísne regulované údaje",
+    "valid": true,
+    "description": "U4 na spracovanie prísne regulovaných údajov, používanie ktorých upravuje legislatíva. Prísne regulované údaje musia spĺňať bezpečnostnú úroveň C3I3A3, musia byť prevádzkované v privátnej časti VC.",
+    "orderList": 4,
+    "engValue": "U4 strictly Regulated Data",
+    "engDescription": "U4 strictly Regulated Data",
+    "qualifierName": null,
+    "qualifierNameEng": null,
+    "qualifierKey": null
+  }
+]

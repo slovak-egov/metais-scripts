@@ -6,8 +6,43 @@ METAISURI="https://metais-test.slovensko.sk"
 #CURL_OPTS="--silent --location"
 CURL_OPTS="--location"
 # copy JWT token here
-ATOKEN="eyJraWQiOiJzaWduaW5nIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJwZXRlci52aXNrdXBAbWlycmkuZ292LnNrIiwiYXVkIjoid2ViUG9ydGFsQ2xpZW50IiwibmJmIjoxNzQ0NjU1ODA1LCJpZGVudGl0eV91dWlkIjoiYTIwNGQyZjAtYWIzNS00YWEwLTk0YWMtNmM4OTRlMWExYWY2IiwidXNlcl9pZCI6InBldGVyLnZpc2t1cEBtaXJyaS5nb3Yuc2siLCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwiY191aSJdLCJyb2xlcyI6WyJJS1RfR0FSUE8iLCJLUklTX1RWT1JCQSIsIlNMQV9TUFJBVkEiLCJXSUtJX1VTRVIiLCJXSUtJX0FETUlOIiwiUl9URUNIIiwiUFJPSkVLVF9TQ0hWQUxPVkFURUwiLCJMSUNfWkxQTyIsIlJPTEVfVVNFUiIsIk1PTl9TUFJBVkEiLCJLUklTX1BPRFBJUyIsIkVBX0dBUlBPIiwiUl9FR09WIiwiVENPX1pQTyIsIlNaQ19ITEdFUyIsIklOVF9QT0RQSVMiXSwiaXNzIjoiaHR0cHM6Ly9tZXRhaXMtdGVzdC5zbG92ZW5za28uc2svaWFtIiwiZXhwIjoxNzQ0Njg0NjA1LCJpYXQiOjE3NDQ2NTU4MDUsImp0aSI6IjNhYTE0OTk1LTBhMmUtNDQzYS1hZmRhLTc5NmUxODc2ODU2NCJ9.MX5f2IbGV6gxcf9ck5y2Z5qP83y8zYkL8Mp11iMMta9mFL2lev88vp964VYvVolarr-8OBZyoO2lHWDi7BcpdKpgTfPNbyU8OkhoFY8VVk2ErNH2i-bXf-TfcXgiab3Obof_5CZp3Gd5b_zOxAjBjQ7k0XQCMc0nfrDp6s2IFSAqoja-gqSGezwG7kxAt8ni2jXgIZxqkTetH43YYARxuEZ2DtUu12BlKgr_5T9PQ0sztTpvqg7ULax-hWHrT9lred89lKLcmDCU40QEyI8kOKqmCl5QGXoUPQX1fckCEit531g4RxP-Ue_kvHZzTY6MSXKq6lt8VMHIWjPhDlLpWg"
+ATOKEN="eyJraWQiOiJzaWduaW5nIiwiYWxnIjoiUlMyNTYifQ....."
 genID=""
+
+while getopts :f:t:n:d:o:s:u:c:i:a: name
+do
+    case $name in
+        f)  FILE=$OPTARG
+            ;;
+        t)  CI_TYPE=$OPTARG
+            ;;
+        n)  CI_NAME=$OPTARG
+            ;;
+        d)  DATE=$OPTARG
+            ;;
+        o)  CI_OWNER=$OPTARG
+            ;;
+        s)  SVC_TYPE=$OPTARG
+            ;;
+        u)  SVC_UROVEN=$OPTARG
+            ;;
+        c)  SVC_CONFID=$OPTARG
+            ;;
+        i)  SVC_INTEGR=$OPTARG
+            ;;
+        a)  SVC_AVAILA=$OPTARG
+            ;;
+        ?)  printf "Usage: %s: -t ci_type -n ci_name -d date -o owner_ico -u uroven -c dovernost -i integrita -a dostupnost\n" $0
+            exit 1;;
+    esac
+done
+
+# nastavit default hodnoty
+[ -z "${DATE}" ] && DATE=$(date +%F)
+[ -z "${CI_TYPE}" ] && CI_TYPE="InfraSluzba"
+[ -z "${CI_NAME}" ] && CI_NAME="${CI_TYPE}_${DATE}"
+
+#echo "$CI_TYPE $CI_NAME $DATE $CI_OWNER $SVC_UROVEN $SVC_CONFID $SVC_INTEGR $SVC_AVAILA" && exit 3
 
 # vráť kód METAIS na základe typu CI
 generateID() {
@@ -45,11 +80,17 @@ getrefURI() {
 # nastav cloud parametre z reťazca CPARAM
 setcloudParams() {
     if [ -n "$CPARAM" ]; then
-    CTYPE="c_typ_cloud_sluzba_is.$(echo $CPARAM|awk -F, '{print $1}')"
-    CLVL="c_akreditacie_cloudovych_sluzieb.$(echo $CPARAM|awk -F, '{print $2}')"
-    CCNF="c_bezpecnost_cloudovych_sluzieb_dovernost.$(echo $CPARAM|awk -F, '{print $3}')"
-    CINT="c_bezpecnost_cloudovych_sluzieb_integrita.$(echo $CPARAM|awk -F, '{print $4}')"
-    CACC="c_bezpecnost_cloudovych_sluzieb_dostupnost.$(echo $CPARAM|awk -F, '{print $5}')"
+    CTYPE="c_typ_cloud_sluzba_is.${SVC_TYPE:-1}"
+    CLVL="c_akreditacie_cloudovych_sluzieb.${SVC_UROVEN:-1}"
+    CCNF="c_bezpecnost_cloudovych_sluzieb_dovernost.${SVC_CONFID:-1}"
+    CINT="c_bezpecnost_cloudovych_sluzieb_integrita.${SVC_INTEGR:-1}"
+    CACC="c_bezpecnost_cloudovych_sluzieb_dostupnost.${SVC_AVAILA:-1}"
+
+    #CTYPE="c_typ_cloud_sluzba_is.$(echo $CPARAM|awk -F, '{print $1}')"
+    #CLVL="c_akreditacie_cloudovych_sluzieb.$(echo $CPARAM|awk -F, '{print $2}')"
+    #CCNF="c_bezpecnost_cloudovych_sluzieb_dovernost.$(echo $CPARAM|awk -F, '{print $3}')"
+    #CINT="c_bezpecnost_cloudovych_sluzieb_integrita.$(echo $CPARAM|awk -F, '{print $4}')"
+    #CACC="c_bezpecnost_cloudovych_sluzieb_dostupnost.$(echo $CPARAM|awk -F, '{print $5}')"
     fi
 }
 
@@ -59,6 +100,7 @@ setASParams() {
     CEXT="c_stav_dost_ext_int.$(echo $CPARAM|awk -F, '{print $2}')"
     fi
 }
+
 # vráti "task/req. UUID" z požiadavky na uloženie novej CI
 # arguments:
 #   type - typ CI (AS, ISVS, InfraSluzba)
@@ -78,7 +120,7 @@ storeCI() {
     DATE=${3?'not defined'}
     OWNERUUID=${4?'not defined'}
     # typ,uroven,dovernost,integrita,dostupnost
-    CPARAM=${5-'null,null,null,null,null'}
+    CPARAM=${5-'0,1,1,1,1'}
 
     DATE=$(date -Is --date "${DATE}")
     genID=$(generateID "${TYPE}")
@@ -91,7 +133,8 @@ storeCI() {
     [ "${TYPE}" = "AS" ] && setASParams "${CPARAM}"
 
     # owner is hardcoded to role "EA_GARPO" ATM (1d8a37f7-3063-46d2-b66a-c1b0c8471878)
-    DATA=$(sed 's#%OWNERUUID%#1d8a37f7-3063-46d2-b66a-c1b0c8471878-'${OWNERUUID}'#;s#%CEXT%#'${CEXT}'#;s#%CTYPE%#'${CTYPE}'#;s#%CLVL%#'${CLVL}'#;s#%CCNF%#'${CCNF}'#;s#%CINT%#'${CINT}'#;s#%CACC%#'${CACC}'#;s#%DATE%#'${DATE}'#;s#%TYPE%#'${TYPE}'#;s#%genID%#'${genID}'#;s#%NAZOV%#'${NAZOV}'#;s#%UUID%#'${UUID}'#;s#%refURI%#'${refURI}'#;s#%refID%#'${genID##*_}'#' "${TYPE}"|jq -c)
+    DATA=$(sed 's#%OWNERUUID%#1d8a37f7-3063-46d2-b66a-c1b0c8471878-'${OWNERUUID}'#;s#%CEXT%#'${CEXT}'#;s#%CTYPE%#'${CTYPE}'#;s#%CLVL%#'${CLVL}'#;s#%CCNF%#'${CCNF}'#;s#%CINT%#'${CINT}'#;s#%CACC%#'${CACC}'#;s#%DATE%#'${DATE}'#;s#%TYPE%#'${TYPE}'#;s#%genID%#'${genID}'#;s#%NAZOV%#'${NAZOV}'#;s#%UUID%#'${UUID}'#;s#%refURI%#'${refURI}'#;s#%refID%#'${genID##*_}'#' tpl/"${TYPE}"|jq -c)
+    #DATA=$(sed 's#%OWNERUUID%#'${OWNERUUID}'#;s#%CEXT%#'${CEXT}'#;s#%CTYPE%#'${CTYPE}'#;s#%CLVL%#'${CLVL}'#;s#%CCNF%#'${CCNF}'#;s#%CINT%#'${CINT}'#;s#%CACC%#'${CACC}'#;s#%DATE%#'${DATE}'#;s#%TYPE%#'${TYPE}'#;s#%genID%#'${genID}'#;s#%NAZOV%#'${NAZOV}'#;s#%UUID%#'${UUID}'#;s#%refURI%#'${refURI}'#;s#%refID%#'${genID##*_}'#' "${TYPE}"|jq -c)
     #DATA=$(sed 's/%TYPE%/'${TYPE}'/;s/%genID%/'${genID}'/;s/%NAZOV%/'${NAZOV}'/;s/%UUID%/'${UUID}'/;s/%ID%/'${genID##*_}'/' AS|jq -c)
     #echo $DATA
     ret=$(curl -v --silent --location --request POST ${URI} --header "Authorization: Bearer ${ATOKEN}" --header 'Content-Type: application/json' --data "${DATA}"|jq '.requestId')
@@ -107,7 +150,7 @@ getPO() {
     filteredCI="/api/cmdb/read/cilistfiltered"
     URI="${METAISURI}${filteredCI}"
     ICO=${1?'not defined'}
-    DATA=$(sed 's#%ICO%#'${ICO}'#' POlist.req|jq -c)
+    DATA=$(sed 's#%ICO%#'${ICO}'#' tpl/POlist.req|jq -c)
 
     ret=$(curl -v --silent --location --request POST ${URI} --header "Authorization: Bearer ${ATOKEN}" --header 'Content-Type: application/json' --data "${DATA}")
     #echo $ret
@@ -117,7 +160,7 @@ getPO() {
     if [ $(echo $ret|jq .pagination.totaltems) -eq 1 ]; then
       echo $ret|jq .configurationItemSet[0].uuid
     else
-      echo "not valid output in list of PO"
+      echo "not valid output in list of PO" >&2
       exit 150
     fi
 }
@@ -130,10 +173,17 @@ metaLogin() {
     curl --silent --location --request POST ${URI} --header 'Content-Type: application/x-www-form-urlencoded' -d "username=your_username&password=your_password" -b "cookie_name=cookie_value"
 }
 
-PO=$(getPO "$3"|tr -d '"')
-
 # InfraSluzba
 #reqID=$(storeCI $1 "${2}" "$(date +%F)" "${PO}" "2,1,1,1,1")
 # AS
 #reqID=$(storeCI $1 "${2}" "$(date +%F)" "${PO}" "2,1")
-reqID=$(storeCI $1 "${2}" "$(date +%F)" "${PO}" "$4")
+if [ -n "${FILE}" -a -r "${FILE}" ]; then
+    while IFS=, read -r CI_TYPE CI_OWNER SVC_TYPE SVC_UROVEN SVC_CONFID SVC_INTEGR SVC_AVAILA; do
+        PO=$(getPO "${CI_OWNER}"|tr -d '"')
+        reqID=$(storeCI "${CI_TYPE}" "${CI_NAME}" "${DATE}" "${PO}" "${SVC_TYPE},${SVC_UROVEN},${SVC_CONFID},${SVC_INTEGR},${SVC_AVAILA}")
+        #echo "${CI_TYPE}" "${CI_NAME}" "${DATE}" "${CI_OWNER}" "${SVC_TYPE},${SVC_UROVEN},${SVC_CONFID},${SVC_INTEGR},${SVC_AVAILA}"
+    done < "${FILE}"
+else
+    PO=$(getPO "${CI_OWNER}"|tr -d '"')
+    reqID=$(storeCI "${CI_TYPE}" "${CI_NAME}" "${DATE}" "${PO}" "${SVC_TYPE},${SVC_UROVEN},${SVC_CONFID},${SVC_INTEGR},${SVC_AVAILA}")
+fi

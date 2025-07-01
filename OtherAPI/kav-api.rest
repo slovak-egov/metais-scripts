@@ -1,0 +1,13 @@
+@APIURI = https://metais-test.slovensko.sk/api/cmdb/external/read/query
+@contentType = application/json
+
+POST {{APIURI}} HTTP 1.1
+Authorization: Basic user:password
+
+{
+  "query": "MATCH(n:ISVS) RETURN n.`$cmdb_id`as ID, n.`$cmdb_createdAt`as createdAt ORDER BY ID(n) SKIP $skip LIMIT $limit",
+  "params": {
+    "skip": 0,
+    "limit": 10
+  }
+}

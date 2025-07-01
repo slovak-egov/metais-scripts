@@ -1,0 +1,55 @@
+# https://metais-test.slovensko.sk/api/enums-repo/enums/enum/all/TYP_CLOUD_SLUZBA_IS
+[
+  {
+    "id": 247,
+    "code": "c_typ_cloud_sluzba_is.1",
+    "value": "Žiadny",
+    "valid": false,
+    "description": "Infraštruktúrna služba nie je cloudovou službou.",
+    "orderList": 1,
+    "engValue": "Any",
+    "engDescription": "Infrastructure service is not a cloud service.",
+    "qualifierName": null,
+    "qualifierNameEng": null,
+    "qualifierKey": null
+  },
+  {
+    "id": 248,
+    "code": "c_typ_cloud_sluzba_is.2",
+    "value": "IaaS",
+    "valid": true,
+    "description": "Typ cloudovej služby Infrastructure as a service (IaaS).",
+    "orderList": 2,
+    "engValue": "IaaS",
+    "engDescription": "Type of cloud service Infrastructure as a service (IaaS).",
+    "qualifierName": null,
+    "qualifierNameEng": null,
+    "qualifierKey": null
+  },
+  {
+    "id": 249,
+    "code": "c_typ_cloud_sluzba_is.3",
+    "value": "PaaS",
+    "valid": true,
+    "description": "Typ cloudovej služby Platform as a service (PaaS).",
+    "orderList": 3,
+    "engValue": "PaaS",
+    "engDescription": "Type of cloud service Platform as a service (PaaS).",
+    "qualifierName": null,
+    "qualifierNameEng": null,
+    "qualifierKey": null
+  },
+  {
+    "id": 9723,
+    "code": "c_typ_cloud_sluzba_is.4",
+    "value": "SaaS",
+    "valid": true,
+    "description": "Typ cloudovej služby Software as a Service (SaaS).",
+    "orderList": 4,
+    "engValue": "SaaS",
+    "engDescription": "Type of cloud service Software as a Service (SaaS).",
+    "qualifierName": null,
+    "qualifierNameEng": null,
+    "qualifierKey": null
+  }
+]

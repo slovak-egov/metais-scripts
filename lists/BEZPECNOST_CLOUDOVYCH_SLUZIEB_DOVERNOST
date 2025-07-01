@@ -1,0 +1,55 @@
+# https://metais-test.slovensko.sk/api/enums-repo/enums/enum/all/BEZPECNOST_CLOUDOVYCH_SLUZIEB_DOVERNOST
+[
+  {
+    "id": 24177,
+    "code": "c_bezpecnost_cloudovych_sluzieb_dovernost.1",
+    "value": "Dôvernosť C0",
+    "valid": true,
+    "description": "C0 - Neexistuje požiadavka na dôvernosť informácie.",
+    "orderList": 1,
+    "engValue": "Confidentiality C0",
+    "engDescription": "Confidentiality C0",
+    "qualifierName": null,
+    "qualifierNameEng": null,
+    "qualifierKey": null
+  },
+  {
+    "id": 24178,
+    "code": "c_bezpecnost_cloudovych_sluzieb_dovernost.2",
+    "value": "Dôvernosť C1",
+    "valid": true,
+    "description": "C1 - Neautorizované zverejnenie informácie môže mať obmedzený vplyv na procesy, služby, aktíva a osoby.",
+    "orderList": 2,
+    "engValue": "Confidentiality C1",
+    "engDescription": "Confidentiality C1",
+    "qualifierName": null,
+    "qualifierNameEng": null,
+    "qualifierKey": null
+  },
+  {
+    "id": 24179,
+    "code": "c_bezpecnost_cloudovych_sluzieb_dovernost.3",
+    "value": "Dôvernosť C2",
+    "valid": true,
+    "description": "C2 - Neautorizované zverejnenie informácie môže mať závažný vplyv na procesy, služby, aktíva a osoby.",
+    "orderList": 3,
+    "engValue": "Confidentiality C2",
+    "engDescription": "Confidentiality C2",
+    "qualifierName": null,
+    "qualifierNameEng": null,
+    "qualifierKey": null
+  },
+  {
+    "id": 24180,
+    "code": "c_bezpecnost_cloudovych_sluzieb_dovernost.4",
+    "value": "Dôvernosť C3",
+    "valid": true,
+    "description": "C3 - Neautorizované zverejnenie informácie môže mať obzvlášť závažný vplyv na procesy, služby, aktíva a osoby.",
+    "orderList": 4,
+    "engValue": "Confidentiality C3",
+    "engDescription": "Confidentiality C3",
+    "qualifierName": null,
+    "qualifierNameEng": null,
+    "qualifierKey": null
+  }
+]
