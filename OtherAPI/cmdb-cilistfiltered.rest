@@ -1,0 +1,35 @@
+@APIURI = https://metais-test.slovensko.sk/api/cmdb/read/cilistfiltered?lang=sk
+
+@contentType = application/json
+# naplň token
+//@token = eyJraWQiOiJzaWduaW5nIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJwZXRlci52aXNrdXBAbWlycmkuZ292LnNrIiwiYXVkIjoid2ViUG9ydGFsQ2xpZW50IiwibmJmIjoxNzQ1ODE4MTM3LCJpZGVudGl0eV91dWlkIjoiYTIwNGQyZjAtYWIzNS00YWEwLTk0YWMtNmM4OTRlMWExYWY2IiwidXNlcl9pZCI6InBldGVyLnZpc2t1cEBtaXJyaS5nb3Yuc2siLCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwiY191aSJdLCJyb2xlcyI6WyJJS1RfR0FSUE8iLCJJTlRfTUFOQVoiLCJLUklTX1RWT1JCQSIsIlNMQV9TUFJBVkEiLCJXSUtJX1VTRVIiLCJXSUtJX0FETUlOIiwiU1pDX1ZFREdFUyIsIklOVF9TUFJBVkEiLCJSX1RFQ0giLCJSX0FETUlOIiwiUFJPSkVLVF9TQ0hWQUxPVkFURUwiLCJMSUNfWkxQTyIsIlNMQV9ORU9CTUVEWkVORSIsIlJfTUVUQUlTIiwiUk9MRV9VU0VSIiwiTU9OX1NQUkFWQSIsIktSSVNfUE9EUElTIiwiRUFfR0FSUE8iLCJHRFBSIiwiUl9FR09WIiwiVENPX1pQTyIsIlNaQ19ITEdFUyIsIklOVF9QT0RQSVMiXSwiaXNzIjoiaHR0cHM6Ly9tZXRhaXMtdGVzdC5zbG92ZW5za28uc2svaWFtIiwiZXhwIjoxNzQ1ODQ2OTM3LCJpYXQiOjE3NDU4MTgxMzcsImp0aSI6IjQ4ZTI2YjhiLTg4ODktNDAzYS05ZmM5LTUzYjEzM2ZmODMzYyJ9.BH94xXuiQfPZ8h9T7qXyrcSeDSa2Q6f8I9mHI3smw5EFQ-dFBeLjp8BaJ06w6MD3STEwIiDyERvG6S49F82QnuzBfqknjzgVm0gG86geZwg1i_oOm7fco6orIyVsR3v-OFtz7m83Y1bEvmdKT2tRWVQ21KvVDoJjgWaTOxVLnqu65UJK85L9IMAfyBh55yKokEi1cLZALI4l78DdYhitk1pojLIiFzbSz_E3YQx_uOFDyJfB26AZqTl1_3F5Md4nR1tPtDF4LTxZ2JLvzes-BCgmcf3o1dk8lHh-eOveHCQCbVKf14BNMRiUc3Cc5ppPfc_h8BsUsccGKXO1hiAdfg
+
+POST {{APIURI}} HTTP 1.1
+//Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+  "filter": {
+    "type": [
+      "ISVS"
+    ],
+    "fullTextSearch": "",
+    "searchFields": [
+      "EA_Profil_ISVS_typ_isvs",
+      "Gen_Profil_nazov",
+      "Gen_Profil_kod_metais",
+      "EA_Profil_ISVS_stav_isvs"
+    ],
+    "attributes": [],
+    "metaAttributes": {
+      "state": [
+        "DRAFT"
+      ]
+    },
+    "relTypeFilters": []
+  },
+  "page": 1,
+  "perpage": 10,
+  "sortBy": "lastModifiedAt",
+  "sortType": "DESC"
+}
